@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>문제 풀기</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+    .question-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .question-text {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      text-align: center;
+      padding: 2rem;
+      color: #333;
+    }
+    .answer-item {
+      cursor: pointer;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      transition: all 0.2s;
+      font-size: 1.1rem;
+    }
+    .answer-item:hover {
+      background-color: #f8f9fa;
+    }
+    .nav-buttons {
+      margin-top: 2rem;
+    }
+    .nav-buttons .btn {
+      min-width: 120px;
+    }
+    .question-title {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+    .progress-text {
+      font-size: 1.1rem;
+      color: #6c757d;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="progress-text text-center mb-3">
+        <p>총 <span th:text="${progress.total}"></span>문제 중
+          <span th:text="${progress.current}"></span>번째 문제</p>
+      </div>
+
+      <div class="question-card p-4 mb-4">
+        <h5 class="question-title">문제</h5>
+        <p class="question-text" th:text="${question.content}"></p>
+
+        <div class="answers mt-4">
+          <div th:if="${question.answerA != null}" class="answer-item" onclick="showAnswer(this)">
+            <strong>A:</strong> <span>정답 보기</span>
+            <span class="d-none" th:text="${question.answerA}"></span>
+          </div>
+          <div th:if="${question.answerB != null}" class="answer-item" onclick="showAnswer(this)">
+            <strong>B:</strong> <span>정답 보기</span>
+            <span class="d-none" th:text="${question.answerB}"></span>
+          </div>
+          <div th:if="${question.answerC != null}" class="answer-item" onclick="showAnswer(this)">
+            <strong>C:</strong> <span>정답 보기</span>
+            <span class="d-none" th:text="${question.answerC}"></span>
+          </div>
+          <div th:if="${question.answerD != null}" class="answer-item" onclick="showAnswer(this)">
+            <strong>D:</strong> <span>정답 보기</span>
+            <span class="d-none" th:text="${question.answerD}"></span>
+          </div>
+          <div th:if="${question.answerE != null}" class="answer-item" onclick="showAnswer(this)">
+            <strong>E:</strong> <span>정답 보기</span>
+            <span class="d-none" th:text="${question.answerE}"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons text-center">
+        <a href="/question/solve" class="btn btn-primary me-2">다음 문제</a>
+        <a href="/" class="btn btn-secondary">메인으로</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showAnswer(element) {
+    const answerSpan = element.querySelector('span:not(.d-none)');
+    const hiddenAnswer = element.querySelector('.d-none');
+    if (answerSpan.textContent === '정답 보기') {
+      answerSpan.textContent = hiddenAnswer.textContent;
+      element.style.backgroundColor = '#e9ecef';
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>학습 완료</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+    .complete-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 5rem;
+    }
+    .complete-title {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+    }
+    .complete-message {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="complete-card">
+        <h2 class="complete-title">🎉 축하합니다!</h2>
+        <p class="complete-message">
+          모든 문제를 완료하셨습니다.<br>
+          새로운 문제 세트를 시작하시겠습니까?
+        </p>
+        <div class="text-center row justify-content-center">
+          <div class="col-6 d-grid">
+            <a href="/" class="btn btn-primary">새로 시작하기</a>
+          </div>
+          <div class="col-6 d-grid">
+            <a href="/" class="btn btn-secondary">메인으로</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>문제 수 선택</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+    .select-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-top: 5rem;
+    }
+    .total-questions {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="select-card">
+        <h2 class="text-center mb-4">문제 수 선택</h2>
+        <p class="text-center total-questions">
+          현재 총 <span th:text="${totalQuestions}"></span>개의 문제가 있습니다.
+        </p>
+
+        <form th:action="@{/question/start}" method="post" class="mt-4">
+          <div class="mb-4">
+            <label for="questionCount" class="form-label">문제 수를 입력해주세요</label>
+            <input type="number" class="form-control" id="questionCount" name="questionCount"
+                   min="1" th:max="${totalQuestions}" required>
+          </div>
+
+          <div class="text-center row justify-content-center">
+            <div class="col-6 d-grid">
+              <button type="submit" class="btn btn-primary">시작하기</button>
+            </div>
+            <div class="col-6 d-grid">
+              <a href="/" class="btn btn-secondary">돌아가기</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

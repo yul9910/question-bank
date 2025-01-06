@@ -1,0 +1,75 @@
+/* 공통 스타일 */
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* 메인 페이지 스타일 */
+.main-container {
+    max-width: 800px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn-custom {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+    transition: transform 0.2s;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px);
+}
+
+.title {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+/* 문제 풀기 페이지 스타일 */
+.question-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.answer-item {
+    cursor: pointer;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.answer-item:hover {
+    background-color: #f8f9fa;
+}
+
+.nav-buttons {
+    margin-top: 2rem;
+}
+
+.nav-buttons .btn {
+    min-width: 120px;
+}
+
+/* 문제 등록 페이지 스타일 */
+.register-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.btn-submit {
+    padding: 0.8rem 2rem;
+}
